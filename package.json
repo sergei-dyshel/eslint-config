@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Personal ESlint config",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sergei-dyshel/eslint-config.git"
@@ -16,9 +14,13 @@
     "url": "https://github.com/sergei-dyshel/eslint-config/issues"
   },
   "homepage": "https://github.com/sergei-dyshel/eslint-config",
+  "prettier": "@sergei-dyshel/prettier-config",
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0"
+  },
+  "devDependencies": {
+    "@sergei-dyshel/prettier-config": "sergei-dyshel/prettier-config#b8b45da"
   }
 }
