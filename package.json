@@ -21,6 +21,6 @@
     "eslint-config-prettier": "^9.1.0"
   },
   "devDependencies": {
-    "@sergei-dyshel/prettier-config": "sergei-dyshel/prettier-config#b8b45da"
+    "@sergei-dyshel/prettier-config": "*"
   }
 }
