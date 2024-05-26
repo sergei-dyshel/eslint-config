@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "Personal ESlint config",
   "main": "index.js",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "build": "eslint-config-prettier index.js",
+    "format-check": "qcfg-prettier",
+    "format-write": "qcfg-prettier-write"
+  },
+  "directories": {
+    "bin": "./bin"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sergei-dyshel/eslint-config.git"
@@ -16,11 +24,14 @@
   "homepage": "https://github.com/sergei-dyshel/eslint-config",
   "prettier": "@sergei-dyshel/prettier-config",
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0"
+    "eslint": "$eslint"
   },
   "devDependencies": {
-    "@sergei-dyshel/prettier-config": "*"
+    "@eslint/js": "^9.2.0",
+    "@sergei-dyshel/prettier-config": "*",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "typescript-eslint": "^7.8.0"
   }
 }
