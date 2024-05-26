@@ -1,9 +1,8 @@
 // @ts-check
 
 import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginOnlyWarn from "eslint-plugin-only-warn";
+import tseslint from "typescript-eslint";
 
 const off = "off";
 const never = "never";
@@ -13,7 +12,11 @@ const always = "always";
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
   eslintConfigPrettier,
+  {
+    ignores: ["out/", "dist/"],
+  },
   {
     plugins: {
       "@typescript-eslint": tseslint.plugin,
@@ -28,10 +31,23 @@ export default tseslint.config(
       reportUnusedDisableDirectives: warn,
     },
     rules: {
-      // handled by tsc
-      "@typescript-eslint/no-unused-vars": off,
-
+      "@typescript-eslint/consistent-type-imports": [warn, { fixStyle: "inline-type-imports" }],
+      "@typescript-eslint/no-import-type-side-effects": warn,
+      "@typescript-eslint/no-unused-vars": [
+        warn,
+        { varsIgnorePattern: "^_.*", argsIgnorePattern: "^_.*" },
+      ],
+      "@typescript-eslint/no-non-null-assertion": off,
+      "no-mixed-spaces-and-tabs": [warn, "smart-tabs"],
+      /* TODO: remove if not used */
+      "@typescript-eslint/no-empty-function": [
+        warn,
+        { allow: ["private-constructors", "protected-constructors", "overrideMethods"] },
+      ],
+      "@typescript-eslint/no-explicit-any": off,
+      "@typescript-eslint/ban-types": off,
       "@typescript-eslint/no-namespace": off,
+      "no-inner-declarations": off,
     },
   },
 );
