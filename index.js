@@ -11,8 +11,8 @@ const always = "always";
 
 export default tseslint.config(
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.strictTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   eslintConfigPrettier,
   {
     ignores: ["out/", "dist/"],
@@ -38,8 +38,23 @@ export default tseslint.config(
         { varsIgnorePattern: "^_.*", argsIgnorePattern: "^_.*" },
       ],
       "@typescript-eslint/no-non-null-assertion": off,
+
+      // TODO: consider enforcing common style for Array<T> vs T[]
+      "@typescript-eslint/array-type": [off],
+
+      // which types are allowed in template expressions
+      "@typescript-eslint/restrict-template-expressions": [
+        warn,
+        { allowAny: true, allowNumber: true, allowArray: true },
+      ],
+
+      // allow arrow functions returning void expression
+      "@typescript-eslint/no-confusing-void-expression": [warn, { ignoreArrowShorthand: true }],
+
+      // Require .toString() to only be called on objects which provide useful information when stringified.
+      "@typescript-eslint/no-base-to-string": warn,
+
       "no-mixed-spaces-and-tabs": [warn, "smart-tabs"],
-      /* TODO: remove if not used */
       "@typescript-eslint/no-empty-function": [
         warn,
         { allow: ["private-constructors", "protected-constructors", "overrideMethods"] },
