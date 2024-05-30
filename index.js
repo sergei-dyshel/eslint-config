@@ -2,6 +2,7 @@
 
 import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
+import "eslint-plugin-only-warn";
 import tseslint from "typescript-eslint";
 
 const off = "off";
@@ -15,7 +16,7 @@ export default tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   eslintConfigPrettier,
   {
-    ignores: ["out/", "dist/"],
+    ignores: ["out/", "dist/", ".ts-node/"],
   },
   {
     plugins: {
@@ -63,6 +64,7 @@ export default tseslint.config(
       "@typescript-eslint/ban-types": off,
       "@typescript-eslint/no-namespace": off,
       "no-inner-declarations": off,
+      "arrow-body-style": [warn, "as-needed"],
     },
   },
 );
