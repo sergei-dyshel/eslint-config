@@ -2,6 +2,7 @@
 
 import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
+import jsdoc from "eslint-plugin-jsdoc";
 import "eslint-plugin-only-warn";
 import tseslint from "typescript-eslint";
 
@@ -14,6 +15,7 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
+  jsdoc.configs["flat/recommended-typescript"],
   eslintConfigPrettier,
   {
     ignores: ["out/", "dist/", ".ts-node/"],
@@ -21,6 +23,7 @@ export default tseslint.config(
   {
     plugins: {
       "@typescript-eslint": tseslint.plugin,
+      jsdoc: jsdoc,
     },
     languageOptions: {
       parser: tseslint.parser,
@@ -65,6 +68,15 @@ export default tseslint.config(
       "@typescript-eslint/no-namespace": off,
       "no-inner-declarations": off,
       "arrow-body-style": [warn, "as-needed"],
+
+      "jsdoc/no-undefined-types": warn,
+      "jsdoc/require-returns": off,
+      "jsdoc/require-param-description": off,
+      "jsdoc/require-param": off,
+      "jsdoc/require-jsdoc": off,
+      "jsdoc/check-tag-names": [warn, { definedTags: ["scopeDefault"] }],
+      "jsdoc/check-param-names": [warn, { disableMissingParamChecks: true }],
+      "jsdoc/tag-lines": [warn, "never", { startLines: 1 }],
     },
   },
 );
