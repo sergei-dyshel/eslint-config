@@ -2,6 +2,8 @@
 
 import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginExportScope from "eslint-plugin-export-scope";
+import eslintPluginImportAccess from "eslint-plugin-import-access/flat-config";
 import jsdoc from "eslint-plugin-jsdoc";
 import "eslint-plugin-only-warn";
 import tseslint from "typescript-eslint";
@@ -17,6 +19,7 @@ export default tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   jsdoc.configs["flat/recommended-typescript"],
   eslintConfigPrettier,
+  eslintPluginExportScope.configs.flatConfigRecommended,
   {
     ignores: ["out/", "dist/", ".ts-node/"],
   },
@@ -24,6 +27,9 @@ export default tseslint.config(
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       jsdoc: jsdoc,
+      // TODO: remove ts-ignore after https://github.com/uhyo/eslint-plugin-import-access/issues/49
+      // @ts-ignore
+      "import-access": eslintPluginImportAccess,
     },
     languageOptions: {
       parser: tseslint.parser,
@@ -77,6 +83,10 @@ export default tseslint.config(
       "jsdoc/check-tag-names": [warn, { definedTags: ["scopeDefault"] }],
       "jsdoc/check-param-names": [warn, { disableMissingParamChecks: true }],
       "jsdoc/tag-lines": [warn, "never", { startLines: 1 }],
+
+      // TODO: triggers false positives https://github.com/A-Shleifman/eslint-plugin-export-scope/issues/9
+      "export-scope/no-imports-outside-export-scope": [off],
+      "import-access/jsdoc": [warn],
     },
   },
 );

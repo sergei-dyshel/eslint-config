@@ -31,6 +31,8 @@
     "@sergei-dyshel/prettier-config": "*",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-export-scope": "^2.4.0",
+    "eslint-plugin-import-access": "^2.2.1",
     "eslint-plugin-jsdoc": "^48.2.9",
     "eslint-plugin-only-warn": "^1.1.0",
     "typescript-eslint": "^7.8.0"
