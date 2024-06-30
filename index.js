@@ -18,10 +18,11 @@ export default tseslint.config(
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   jsdoc.configs["flat/recommended-typescript"],
+  // @ts-ignore
   eslintConfigPrettier,
   eslintPluginExportScope.configs.flatConfigRecommended,
   {
-    ignores: ["out/", "dist/", ".ts-node/"],
+    ignores: ["out/", "dist/", ".ts-node/", "eslint.config.mjs"],
   },
   {
     plugins: {
