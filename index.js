@@ -76,6 +76,8 @@ export default tseslint.config(
       "no-inner-declarations": off,
       "arrow-body-style": [warn, "as-needed"],
 
+      "@typescript-eslint/ban-ts-comment": [warn, { "ts-expect-error": false }],
+
       "jsdoc/no-undefined-types": warn,
       "jsdoc/require-returns": off,
       "jsdoc/require-param-description": off,
