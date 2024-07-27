@@ -7,6 +7,7 @@ npm install --save-dev @sergei-dyshel/eslint-config
 ```
 
 Add `.eslintrc.js`:
+
 ```js
 /**
  * @type {import("eslint").Linter.Config}
