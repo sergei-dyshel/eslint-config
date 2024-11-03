@@ -4,9 +4,7 @@
   "description": "Personal ESlint config",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "build": "eslint-config-prettier index.js"
-  },
+  "scripts": {},
   "directories": {
     "bin": "./bin"
   },
