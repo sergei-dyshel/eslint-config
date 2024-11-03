@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "eslint-config-prettier index.js",
-    "format-check": "qcfg-prettier",
-    "format-write": "qcfg-prettier-write"
+    "build": "eslint-config-prettier index.js"
   },
   "directories": {
     "bin": "./bin"

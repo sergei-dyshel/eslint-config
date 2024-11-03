@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-exec eslint --max-warnings=0 . "$@"
