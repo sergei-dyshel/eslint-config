@@ -73,6 +73,8 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": off,
       "@typescript-eslint/ban-types": off,
       "@typescript-eslint/no-namespace": off,
+      "@typescript-eslint/switch-exhaustiveness-check": warn,
+
       "no-inner-declarations": off,
       "arrow-body-style": [warn, "as-needed"],
 
