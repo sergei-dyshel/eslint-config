@@ -5,6 +5,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginExportScope from "eslint-plugin-export-scope";
 import eslintPluginImportAccess from "eslint-plugin-import-access/flat-config";
 import jsdoc from "eslint-plugin-jsdoc";
+import eslintPluginNoRelativeImportPaths from "eslint-plugin-no-relative-import-paths";
 import "eslint-plugin-only-warn";
 import tseslint from "typescript-eslint";
 
@@ -31,6 +32,7 @@ export default tseslint.config(
       // TODO: remove ts-ignore after https://github.com/uhyo/eslint-plugin-import-access/issues/49
       // @ts-ignore
       "import-access": eslintPluginImportAccess,
+      "no-relative-import-paths": eslintPluginNoRelativeImportPaths,
     },
     languageOptions: {
       parser: tseslint.parser,
@@ -92,6 +94,12 @@ export default tseslint.config(
       // TODO: triggers false positives https://github.com/A-Shleifman/eslint-plugin-export-scope/issues/9
       "export-scope/no-imports-outside-export-scope": [off],
       "import-access/jsdoc": [warn],
+
+      // TODO: turning this on causes esbuild failuer and tsc --build failures
+      "no-relative-import-paths/no-relative-import-paths": [
+        off,
+        { allowSameFolder: true, rootDir: ".", prefix: "" },
+      ],
     },
   },
 );
