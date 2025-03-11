@@ -87,6 +87,7 @@ export default tseslint.config(
       "jsdoc/require-param-description": off,
       "jsdoc/require-param": off,
       "jsdoc/require-jsdoc": off,
+      "jsdoc/require-yields": off,
       "jsdoc/check-tag-names": [warn, { definedTags: ["scopeDefault"] }],
       "jsdoc/check-param-names": [warn, { disableMissingParamChecks: true }],
       "jsdoc/tag-lines": [warn, "never", { startLines: 1 }],
