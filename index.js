@@ -72,6 +72,7 @@ export default tseslint.config(
         warn,
         { allow: ["private-constructors", "protected-constructors", "overrideMethods"] },
       ],
+      "no-empty": [warn, { allowEmptyCatch: true }],
       "@typescript-eslint/no-explicit-any": off,
       "@typescript-eslint/ban-types": off,
       "@typescript-eslint/no-namespace": off,
