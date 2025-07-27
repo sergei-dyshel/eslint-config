@@ -61,6 +61,9 @@ export default tseslint.config(
         { allowAny: true, allowNumber: true, allowArray: true },
       ],
 
+      // do not complaint about unbound static methods
+      "@typescript-eslint/unbound-method": [warn, { ignoreStatic: true }],
+
       // allow arrow functions returning void expression
       "@typescript-eslint/no-confusing-void-expression": [warn, { ignoreArrowShorthand: true }],
 
